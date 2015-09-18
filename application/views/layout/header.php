@@ -13,7 +13,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
   </head>
   <body>
