@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link rel="shortcut icon" type="image/png" href="<?= base_url(); ?>static/img/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="<?= base_url(); ?>assets/img/favicon.png"/>
 
     <!-- SEO -->
     <title><?= $title ?></title>
@@ -13,7 +13,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/style.css">
 
   </head>
   <body>

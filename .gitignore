@@ -29,3 +29,5 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 # CUSTOM
 #-------------------------
 application/production/*
+/node_modules
+*.sass-cache

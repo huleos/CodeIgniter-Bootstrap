@@ -1,0 +1,26 @@
+$bg-color:               #f7f7f7;
+$text-color:             #dd4814;
+$text-color-dark:        #97310e;
+
+a{
+	color: $text-color;
+	&:hover,
+	&:focus{
+		color: $text-color-dark;
+	}
+}
+
+.starter-template{
+	padding: 3rem 1.5rem;
+	text-align: center;
+	h1{
+		color: $text-color;
+	}
+}
+
+footer{
+	padding: 4rem 0;
+	margin-top: 4rem;
+	background-color: $bg-color;
+	text-align: center;
+}
