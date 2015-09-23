@@ -1,4 +1,4 @@
-# I'm Medical Tourist
+# CodeIgniter Bootstrap
 
 ### Prerequisites
 ***
