@@ -19,6 +19,7 @@ issues, as well as missing features.
 ***
 * `git clone <repository-url>` this repository.
 * `npm install`
+* `bower install`
 * Open the `application/config/development and production/config.php` file with a text editor and set your base URL. If you intend to use encryption or sessions, set your encryption key.
 * If you intend to use a database, open the `application/config/development and production/database.php` file with a text editor and set your database settings.
 * You will need to enter your mail server details into `application/config/development and production/email.php`
