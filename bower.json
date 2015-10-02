@@ -1,0 +1,20 @@
+{
+  "name": "codeigniter-bootstrap",
+  "version": "1.0.1",
+  "homepage": "https://github.com/huleos/CodeIgniter-Bootstrap.git",
+  "authors": [
+    "Julio Cesar Montenegro <creativo@686studio.com>"
+  ],
+  "description": "Starter CodeIgniter with Bootstrap with some basic functions, allowing you to quickly start their web development.",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~4.0.0-alpha"
+  }
+}

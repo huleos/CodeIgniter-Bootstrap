@@ -19,32 +19,47 @@ function errorLog(error){
 	this.emit('end');
 }
 
+// Paths
+var paths = {
+	'bower': 'bower_components',
+	'assets': 'assets'
+};
+
 /**********************************************
 Style Task
 ***********************************************/
 
 gulp.task('styles', function () {
-	gulp.src('assets/sass/style.scss')
+	gulp.src(paths.assets + '/scss/style.scss')
 		.pipe(sourcemaps.init())
-		.pipe(sass().on('error', sass.logError))
+		.pipe(sass({
+			includePaths: [
+				paths.bower + '/bootstrap/scss'
+			]
+		}))
+		.pipe(sass.sync().on('error', sass.logError))
 		.pipe(prefix({
 			browsers: ['last 2 versions'],
 			cascade: false
 		}))
 		.pipe(sass({outputStyle: 'compressed'}))
-		.pipe(sourcemaps.write())
-		.pipe(gulp.dest('assets/css'));
+		.pipe(sourcemaps.write('.'))
+		.pipe(gulp.dest(paths.assets + '/css'));
 });
 
 /**********************************************
 Scripts Tasks
 ***********************************************/
 gulp.task('scripts', function(){
-	gulp.src(['assets/js/custom.js']) // array: gulp.src(['assets/js/sample.js', 'assets/js/etc.js', 'assets/js/custom.js' ])
+	gulp.src([
+		paths.bower + '/jquery/dist/jquery.js',
+		paths.bower + '/bootstrap/dist/js/bootstrap.js',
+		paths.assets + '/js/custom.js'
+		])
 	  .pipe(uglify())
 	  .on('error', errorLog)
 	  .pipe(concat('all.js'))
-	  .pipe(gulp.dest('assets/js'));
+	  .pipe(gulp.dest(paths.assets + '/js'));
 });
 
 /**********************************************
@@ -52,9 +67,9 @@ Images Tasks
 ***********************************************/
 
 gulp.task('image', function() {
-	return gulp.src('assets/img/**/*')
+	return gulp.src(paths.assets + '/img/**/*')
 	  .pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })))
-	  .pipe(gulp.dest('assets/img'));
+	  .pipe(gulp.dest(paths.assets + '/img'));
 });
 
 /**********************************************
@@ -63,9 +78,9 @@ Watch Tasks
 
 gulp.task('watch', function(){
 	// Watch .scss files
-	gulp.watch('assets/sass/*.scss', ['styles']);
+	gulp.watch(paths.assets + '/scss/*.scss', ['styles']);
 	// Watch .js files
-	gulp.watch('assets/js/**/*.js', ['scripts']);
+	gulp.watch(paths.assets + '/js/**/*.js', ['scripts']);
 	// Watch image files
 	//gulp.watch('assets/img/**/*', ['image']);
 });
@@ -77,8 +92,8 @@ Server
 gulp.task('browser-sync', function() {
 	var files =[
 	'application/views/**/*.php',
-	'assets/css/**/*.css',
-	'assets/js/**/*.js'
+	paths.assets + '/css/**/*.css',
+	paths.assets + '/js/**/*.js'
 	];
 
   browserSync.init(files, {
@@ -99,7 +114,7 @@ Clean Tasks
 ***********************************************/
 
 gulp.task('clean', function() {
-    del(['.sass-cache', 'assets/js/all.js', 'assets/css/style.css'])
+    del(['.sass-cache', paths.assets + '/js/all.js', paths.assets + '/css/style.css'])
 });
 
 /**********************************************

@@ -30,4 +30,5 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 #-------------------------
 application/production/*
 /node_modules
+/bower_components
 *.sass-cache
